@@ -1,0 +1,22 @@
+{
+  "name": "barbackapi",
+  "version": "1.0.0",
+  "description": "BarBackAPI is the central API gateway for Soiree, responsible for handling frontend requests and routing them to the appropriate backend services. It acts as the core communication layer between the frontend and the server-side architecture, managing transactional data storage, cache operations, and integrations with various microservices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soiree-NYC/BarBackAPI.git"
+  },
+  "author": "FN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soiree-NYC/BarBackAPI/issues"
+  },
+  "homepage": "https://github.com/Soiree-NYC/BarBackAPI#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
