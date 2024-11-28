@@ -26,3 +26,7 @@ const Pricing = sequelize.define('Pricing', {
 
 Venue.hasOne(Pricing, { foreignKey: 'venue_id' });
 Pricing.belongsTo(Pricing, { foreignKey: 'venue_id' });
+
+module.exports = {
+  Pricing,
+};

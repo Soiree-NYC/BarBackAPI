@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
 const Space = sequelize.define('Space', {
-  name : {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -19,16 +19,18 @@ const Space = sequelize.define('Space', {
     allowNull: false,
     references: {
       model: 'Venues',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   description: {
     type: DataTypes.STRING,
     allowNull: true,
-  }
+  },
 });
 
 Venue.hasMany(Space, { foreignKey: 'venue_id' });
 Space.belongsTo(Venue, { foreignKey: 'venue_id' });
 
-module.exports = { Space, };
+module.exports = {
+  Space,
+};
