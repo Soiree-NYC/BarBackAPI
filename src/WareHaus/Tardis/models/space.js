@@ -6,13 +6,36 @@ const Space = sequelize.define('Space', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  capacity: {
-    type: DataTypes.INTEGER,
+  type: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  min_capacity: {
+    type: DataTypes.STRING
+  },
+  max_capacity: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  size: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   price: {
     type: DataTypes.FLOAT,
     allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   venue_id: {
     type: DataTypes.INTEGER,
@@ -21,10 +44,6 @@ const Space = sequelize.define('Space', {
       model: 'Venues',
       key: 'id',
     },
-  },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: true,
   },
 });
 

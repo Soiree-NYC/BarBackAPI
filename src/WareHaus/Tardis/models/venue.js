@@ -43,6 +43,14 @@ const Venue = sequelize.define('Venue', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  age_policy: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  photos: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: false,
+  },
   cancellation_policy_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
