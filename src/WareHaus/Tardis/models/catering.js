@@ -22,3 +22,7 @@ const Catering = sequelize.define('Catering', {
 
 Venue.hasOne(Catering, { foreignKey: 'venue_id' });
 Catering.belongsTo(Catering, { foreignKey: 'venue_id' });
+
+module.exports = {
+  Catering
+};

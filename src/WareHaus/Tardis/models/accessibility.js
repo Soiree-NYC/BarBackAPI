@@ -42,4 +42,18 @@ const Accessibility = sequelize.define('Accessibility', {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
+  venue_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Venue,
+      key: 'id',
+    },
+  },
 });
+
+Venue.belongsTo(Accessibility, { foreignKey: 'venue_id' });
+Accessibility.belongsTo(Venue, { foreignKey: 'venue_id' });
+
+module.exports = {
+  Accessibility
+};
