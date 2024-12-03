@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
-const { CancellationPolicy } = require('./cancellationPolicy');
+const { CancellationPolicy } = require('./CancellationPolicy');
 
 const Venue = sequelize.define('Venue', {
   name: {
