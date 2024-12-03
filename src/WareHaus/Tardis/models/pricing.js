@@ -14,6 +14,26 @@ const Pricing = sequelize.define('Pricing', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  cleaning_fee: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  gratuity_fee: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  corking_fee: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  cold_storage_fee: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  coat_check__fee: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
   venue_id: {
     type: DataTypes.INTEGER,
     references: {

@@ -30,3 +30,7 @@ const Parking = sequelize.define('Parking', {
 
 Venue.hasOne(Parking, { foreignKey: 'venue_id' });
 Parking.belongsTo(Parking, { foreignKey: 'venue_id' });
+
+module.exports = {
+  Parking
+};

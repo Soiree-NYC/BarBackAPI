@@ -23,4 +23,6 @@ const Licence = sequelize.define('Licences', {
 Venue.hasOne(Licence, { foreignKeys: 'venue_id' });
 Licence.belongsTo(Licence, { foreignKeys: 'venue_id' });
 
-module.exports = { Licence };
+module.exports = {
+  Licence
+};
