@@ -3,8 +3,8 @@
 const path = require('path');
 
 module.exports = {
-  config: path.resolve('config', 'database.json'),
-  'models-path'    : path.resolve('src/WareHaus/Tardis', 'models'),
-  'seeders-path'   : path.resolve('src/WareHaus/Tardis', 'seeders'),
-  'migrations-path': path.resolve('src/WareHaus/Tardis', 'migrations'),
+  config: path.resolve('src/WareHaus/Tardis/config', 'config.json'),
+  'models-path': path.resolve('src/WareHaus/Tardis', 'models'),
+  'seeders-path': path.resolve('src/WareHaus/Tardis', 'seeders'), 
+  'migrations-path': path.resolve('src/WareHaus/Tardis', 'migrations')
 };
