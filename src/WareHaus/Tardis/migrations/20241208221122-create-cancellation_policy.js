@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Accessibility', {
+    await queryInterface.createTable('CancellationPolicy', {
       policy_id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

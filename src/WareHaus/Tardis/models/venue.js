@@ -61,7 +61,7 @@ const Venue = sequelize.define('Venue', {
   },
 });
 
-Venue.belongsTo(CancellationsPolicy, { foreignKey: 'cancellation_policy_id' });
+Venue.belongsTo(CancellationPolicy, { foreignKey: 'cancellation_policy_id' });
 CancellationPolicy.hasMany(Venue, { foreignKey: 'cancellation_policy_id' });
 
 module.exports = {
