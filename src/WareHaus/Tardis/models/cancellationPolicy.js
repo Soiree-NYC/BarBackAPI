@@ -11,6 +11,13 @@ const CancellationPolicy = sequelize.define('CancellationPolicy', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  venue_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Venue,
+      key: 'id'
+    },
+  },
 });
 
 Venue.belongsTo(CancellationPolicy, { foreignKey: 'cancellation_policy_id' });
