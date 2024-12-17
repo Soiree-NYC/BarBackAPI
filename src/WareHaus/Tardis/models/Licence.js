@@ -1,28 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
-  const Catering = sequelize.define('Catering', {
-    in_house: {
+  const Licence = sequelize.define('Licence', {
+    liquor: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    external: {
+    byob: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     venue_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'Venues',
         key: 'id',
       },
+      allowNull: false,
     },
   }, {
-    tableName: 'Caterings'
+    tableName: 'Licences'
   });
 
-  Catering.associate = (models) => {
-    Catering.belongsTo(models.Catering, { foreignKey: 'venue_id' });
+  Licence.associate = (models) => {
+    Licence.belongsTo(models.Licence, { foreignKeys: 'venue_id' });
   };
 
-  return Catering;
+  return Licence;
 };

@@ -1,21 +1,25 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./index');
+module.exports = (sequelize, DataTypes) => {
+  const CancellationPolicy = sequelize.define('CancellationPolicy', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  }, {
+    tableName: 'CancellationPolicies'
+  });
 
-const CancellationPolicy = sequelize.define('CancellationPolicy', {
-  policy_id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+  CancellationPolicy.associate = (models) => {
+    CancellationPolicy.hasMany(models.Venue, { foreignKey: 'cancellation_policy_id' });
+  };
 
-Venue.belongsTo(CancellationPolicy, { foreignKey: 'cancellation_policy_id' });
-CancellationPolicy.hasMany(Venue, { foreignKey: 'cancellation_policy_id' });
-
-module.exports = {
-  CancellationPolicy,
+  return CancellationPolicy;
 };
