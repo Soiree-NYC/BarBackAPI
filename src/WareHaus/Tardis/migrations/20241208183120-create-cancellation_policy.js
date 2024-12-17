@@ -4,26 +4,23 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('CancellationPolicy', {
-      policy_id: {
-        type: DataTypes.INTEGER,
+      id: {
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      description: {
-        type: DataTypes.STRING,
+      name: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      venue_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Venue,
-          key: 'id'
-        },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
     });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down (queryInterface,) {
     await queryInterface.dropTable('CancellationPolicy');
   }
 };

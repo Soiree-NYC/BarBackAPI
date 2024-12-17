@@ -1,35 +1,35 @@
 module.exports = (sequelize, DataTypes) => {
-  const Pricing = sequelize.define('Pricing', {
-    basic_price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    premium_price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    vip_price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    cleaning_fee: {
+  const Hours = sequelize.define('Hour', {
+    monday: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    gratuity_fee: {
+    tuesday: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    corking_fee: {
+    wednesday: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    cold_storage_fee: {
+    thursday: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    coat_check__fee: {
+    friday: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    saturday: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    sunday: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    min_hours: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     venue_id: {
@@ -41,12 +41,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {
-    tableName: 'Pricings'
+    tableName: 'Hours'
   });
 
-  Pricing.associate = (models) => {
-    Pricing.belongsTo(models.Pricing, { foreignKey: 'venue_id' });
+  Hours.associate = (models) => {
+    Hours.belongsTo(models.Hour, { foreignKey: 'venue_id' });
   };
 
-  return Pricing;
+  return Hours;
 };

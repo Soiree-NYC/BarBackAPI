@@ -3,7 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('accessility', {
+    await queryInterface.createTable('Accessibility', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
       client_music: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
@@ -47,7 +53,7 @@ module.exports = {
       venue_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: Venue,
+          model: 'Venues',
           key: 'id',
         },
         onUpdate: 'CASCADE',

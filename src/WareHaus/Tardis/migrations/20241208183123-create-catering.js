@@ -5,18 +5,18 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('Catering', {
       in_house: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       external: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       venue_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: Venue,
+          model: 'Venues',
           key: 'id',
         },
       },
