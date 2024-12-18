@@ -12,16 +12,11 @@ module.exports = {
         friday: true,
         saturday: true,
         sunday: true,
-      }
-    ])
+      },
+    ]);
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('Hours', null, {});
   }
 };

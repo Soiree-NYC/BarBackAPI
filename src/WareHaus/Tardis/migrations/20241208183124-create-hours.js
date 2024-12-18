@@ -34,10 +34,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
-      min_hours: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       venue_id: {
         type: Sequelize.INTEGER,
         references: {
