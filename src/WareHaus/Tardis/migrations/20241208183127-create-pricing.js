@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Pricing', {
+    await queryInterface.createTable('Pricings', {
       basic_price: {
         type: Sequelize.FLOAT,
         allowNull: false,
