@@ -1,7 +1,5 @@
 'use strict';
 
-const { query } = require('express');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -32,10 +30,6 @@ module.exports = {
       },
       sunday: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-      min_hours: {
-        type: Sequelize.STRING,
         allowNull: false,
       },
       venue_id: {

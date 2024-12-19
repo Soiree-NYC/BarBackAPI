@@ -28,10 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    min_hours: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     venue_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Space', {
+    await queryInterface.createTable('Spaces', {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -13,10 +13,10 @@ module.exports = {
         allowNull: false,
       },
       min_capacity: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       max_capacity: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       size: {

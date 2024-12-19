@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Catering', {
+    await queryInterface.createTable('Caterings', {
       in_house: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
