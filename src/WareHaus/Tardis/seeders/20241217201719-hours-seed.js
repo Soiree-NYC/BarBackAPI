@@ -12,6 +12,7 @@ module.exports = {
         friday: true,
         saturday: true,
         sunday: true,
+        venue_id: 1,
       },
     ]);
   },

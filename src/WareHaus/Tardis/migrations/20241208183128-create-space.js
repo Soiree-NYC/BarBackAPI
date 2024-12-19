@@ -13,10 +13,10 @@ module.exports = {
         allowNull: false,
       },
       min_capacity: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       max_capacity: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       size: {

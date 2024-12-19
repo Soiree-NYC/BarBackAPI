@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     min_capacity: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER,
     },
     max_capacity: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     size: {

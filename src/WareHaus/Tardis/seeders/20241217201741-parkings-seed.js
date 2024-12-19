@@ -3,23 +3,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    await queryInterface.bulkInsert('Parkings', [
+      {
+        free_onsite_parking: false,
+        free_street_parking: true,
+        paid_onsite_parking: false,
+        paid_street_parking: true,
+        venue_id: 1,
+      },
+    ]);
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    queryInterface.bulkDelete('Parkings', null, {});
   }
 };

@@ -17,23 +17,23 @@ module.exports = {
         allowNull: false,
       },
       cleaning_fee: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       gratuity_fee: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       corking_fee: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       cold_storage_fee: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
-      coat_check__fee: {
-        type: Sequelize.BOOLEAN,
+      coat_check_fee: {
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       venue_id: {

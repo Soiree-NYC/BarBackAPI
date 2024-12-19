@@ -13,23 +13,23 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     cleaning_fee: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     gratuity_fee: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     corking_fee: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     cold_storage_fee: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
-    coat_check__fee: {
-      type: DataTypes.BOOLEAN,
+    coat_check_fee: {
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     venue_id: {
