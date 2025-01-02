@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       favorites: {
-        type: Sequelize.ARRAY
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       last_login: {
         type: Sequelize.DATE

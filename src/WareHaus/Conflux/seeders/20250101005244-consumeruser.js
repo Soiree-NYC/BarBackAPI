@@ -22,7 +22,7 @@ module.exports = {
           sms: true,
         }),
         account_status: 'active',
-        favorites: JSON.stringify(['1']),
+        favorites: ['1'],
         last_login: new Date(),
         profile_picture:
           'https://plus.unsplash.com/premium_photo-1673177667569-e3321a8d8256?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
