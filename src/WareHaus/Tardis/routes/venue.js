@@ -1,5 +1,5 @@
 const express = require('express');
-const { Venue } = require('./models/Venue');
+const { Venue } = require('./models/venue');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -28,7 +28,16 @@ const sequelize = require('../models/index');
 router.post('/', async (req, res) => {
   const transaction = await sequelize.transaction();
   try {
-    const { cancellation_policy, catering, hours, licences, parking, pricing, space, ...venueData } = req.body;
+    const {
+      cancellation_policy,
+      catering,
+      hours,
+      licences,
+      parking,
+      pricing,
+      space,
+      ...venueData
+    } = req.body;
     const venue = await Venue.create(venueData, { transaction });
 
     if (cancellation_policy) {
@@ -89,7 +98,6 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Something went wrong' });
   }
 });
-
 
 router.put('/:id', async (req, res) => {
   const venue = await Venue.findByPk(req.params.id);
