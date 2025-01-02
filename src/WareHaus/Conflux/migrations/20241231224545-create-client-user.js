@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ConsumerUsers', {
+    await queryInterface.createTable('ClientUsers', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,10 +13,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
-      },
-      company: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
       },
       phone: {
         type: Sequelize.STRING
@@ -24,32 +23,46 @@ module.exports = {
       verification: {
         type: Sequelize.JSON
       },
+      venues: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        defaultValue: []
+      },
       notification_preferences: {
-        type: Sequelize.JSON
+        type: Sequelize.JSON,
+        defaultValue: {
+          push: true,
+          email: true,
+          sms: true,
+        }
       },
       account_status: {
-        type: Sequelize.STRING
-      },
-      favorites: {
-        type: Sequelize.ARRAY
+        type: Sequelize.STRING,
+        defaultValue: 'active'
       },
       last_login: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       profile_picture: {
         type: Sequelize.STRING
       },
+      roles: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        defaultValue: ['user']
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ConsumerUsers');
+    await queryInterface.dropTable('ClientUsers');
   }
 };
