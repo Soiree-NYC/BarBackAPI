@@ -13,15 +13,12 @@ router.get('/:id', async (req, res) => {
   res.json(user);
 });
 
-const {
-  ClientUser,
-} = require('../models');
 const sequelize = require('../models/index');
 
 router.post('/', async (req, res) => {
   const transaction = await sequelize.transaction();
   try {
-    const { clientUser } = req.body;
+    const userData = req.body;
     const user = await clientUser.create(userData, { transaction });
 
     await transaction.commit();
@@ -32,7 +29,6 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Something went wrong' });
   }
 });
-
 
 router.put('/:id', async (req, res) => {
   const user = await ClientUser.findByPk(req.params.id);
