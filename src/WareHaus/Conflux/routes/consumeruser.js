@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const user = await ConsumerUser.findByPk(req.params.id);
-  if (!user) return res.status(404).json({ message: 'Venue not found' });
+  if (!user) return res.status(404).json({ message: 'User not found' });
   res.json(user);
 });
 
@@ -40,7 +40,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const user = await ConsumerUser.findByPk(req.params.id);
-  if (!user) return res.status(404).json({ message: 'Venue not found' });
+  if (!user) return res.status(404).json({ message: 'User not found' });
   await user.destroy();
   res.status(204).send();
 });
