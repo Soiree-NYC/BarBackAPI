@@ -1,5 +1,5 @@
 const express = require('express');
-const { ConsumerUser } = require('./models/consumeruser');
+const { ConsumerUser } = require('./models/');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -13,9 +13,6 @@ router.get('/:id', async (req, res) => {
   res.json(user);
 });
 
-const {
-  ConsumerUser,
-} = require('../models');
 const sequelize = require('../models/index');
 
 router.post('/', async (req, res) => {
