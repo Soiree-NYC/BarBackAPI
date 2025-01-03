@@ -1,18 +1,5 @@
 const express = require('express');
-const { Venue } = require('./models/venue');
 const router = express.Router();
-
-router.get('/', async (req, res) => {
-  const venues = await Venue.findAll();
-  res.json(venues);
-});
-
-router.get('/:id', async (req, res) => {
-  const venue = await Venue.findByPk(req.params.id);
-  if (!venue) return res.status(404).json({ message: 'Venue not found' });
-  res.json(venue);
-});
-
 const {
   Venue,
   CancellationPolicy,
@@ -24,6 +11,22 @@ const {
   Space,
 } = require('../models');
 const sequelize = require('../models/index');
+
+router.get('/', async (req, res) => {
+  const venues = await Venue.findAll();
+  res.json(venues);
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const venue = await Venue.findByPk(req.params.id);
+    if (!venue) return res.status(404).json({ message: 'Venue not found' });
+    res.json(venue);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: `Something went wrong while fetching ${req.params.id}` });
+  }
+});
 
 router.post('/', async (req, res) => {
   const transaction = await sequelize.transaction();

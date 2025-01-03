@@ -1,5 +1,5 @@
 const express = require('express');
-const { ConsumerUser } = require('./models/consumeruser');
+const { ConsumerUser } = require('./models/');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -9,13 +9,10 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const user = await ConsumerUser.findByPk(req.params.id);
-  if (!user) return res.status(404).json({ message: 'Venue not found' });
+  if (!user) return res.status(404).json({ message: 'User not found' });
   res.json(user);
 });
 
-const {
-  ConsumerUser,
-} = require('../models');
 const sequelize = require('../models/index');
 
 router.post('/', async (req, res) => {
@@ -43,7 +40,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const user = await ConsumerUser.findByPk(req.params.id);
-  if (!user) return res.status(404).json({ message: 'Venue not found' });
+  if (!user) return res.status(404).json({ message: 'User not found' });
   await user.destroy();
   res.status(204).send();
 });
