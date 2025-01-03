@@ -1,5 +1,4 @@
 const express = require('express');
-const { Venue } = require('./models/venue');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
