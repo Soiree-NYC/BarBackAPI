@@ -56,6 +56,14 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    tags: {
+      type: DataTypes.Array(DataTypes.STRING),
+      allowNull: true,
+    },
+    menuOptions: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
   }, {
     tableName: 'Venues'
   });
