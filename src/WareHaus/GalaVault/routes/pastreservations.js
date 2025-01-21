@@ -1,12 +1,12 @@
 const express = require('express');
-const { Reservation } = require('./models');
-const { reservationSchema } = require('../validations/reservationValidation');
+const { PastReservations } = require('./models/');
+const { pastReservationsSchema } = require('../validation/pastReservationsValidation');
 const sequelize = require('../models/index');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const reservations = await Reservation.findAll();
+    const reservations = await PastReservations.findAll();
     res.json(reservations);
   } catch (error) {
     console.error(error);
@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const reservation = await Reservation.findByPk(req.params.id);
-    if (!user) return res.status(404).json({ message: `Reservation not found with id ${req.params.id}` });
-    res.json(reservation);
+    const reservations = await PastReservations.findByPk(req.params.id);
+    if (!reservations) return res.status(404).json({ message: `Reservation not found with id ${req.params.id}` });
+    res.json(reservations);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: `Something went wrong while fetching ${req.params.id}` });
@@ -28,10 +28,10 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const transaction = await sequelize.transaction();
   try {
-    const { error, value } = reservationSchema.validate(req.body);
+    const { error, value } = pastReservationsSchema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
 
-    const reservation = await Reservation.create(value, { transaction });
+    const reservation = await PastReservations.create(value, { transaction });
 
     await transaction.commit();
     res.status(201).json(reservation);
@@ -44,13 +44,13 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const { error, value } = reservationSchema.validate(req.body, { allowUnknown: true });
+    const { error, value } = pastReservationsSchema.validate(req.body, { allowUnknown: true });
     if (error) return res.status(400).json({ error: error.details[0].message });
 
-    const reservation = await Reservation.findByPk(req.params.id);
-    if (!reservation) return res.status(404).json({ message: `Reservation not found with id ${req.params.id}` });
+    const reservation = await PastReservations.findByPk(req.params.id);
+    if (!reservation) return res.status(404).json({ message: `reservation not found with id ${req.params.id}` });
 
-    await user.update(value);
+    await reservation.update(value);
     res.json(reservation);
   } catch (error) {
     console.error(error);
@@ -60,10 +60,11 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const reservation = await Reservation.findByPk(req.params.id);
-    if (!reservation) return res.status(404).json({ message: 'Reservation not found' });
-    await user.destroy();
-    res.status(204).send();
+    const reservation = await PastReservations.findByPk(req.params.id);
+    if (!reservation) return res.status(404).json({ message: 'reservation not found' });
+
+    await reservation.destroy();
+    res.json({ message: `reservation with id ${req.params.id} deleted successfully`, reservation });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: `Something went wrong while deleting ${req.params.id}` });
